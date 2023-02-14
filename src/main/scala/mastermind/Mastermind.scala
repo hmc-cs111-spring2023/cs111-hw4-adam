@@ -13,7 +13,9 @@ val validColors = List('B', 'Y', 'R', 'G')
 
 /** Get a random color from the list of valid colors */
 def getRandomColor(): Color =
-  ???
+  val random = new Random()
+  validColors.apply(random.nextInt(4))
+
 
 /** Given four colors, make a board from them */
 def makeBoardFromColors(c1: Color, c2: Color, c3: Color, c4: Color): Board =
