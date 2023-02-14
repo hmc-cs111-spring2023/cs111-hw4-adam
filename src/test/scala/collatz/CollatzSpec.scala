@@ -22,16 +22,16 @@ class CollatzSpec extends AnyFunSuite with Matchers:
         collatz(101) should be (304)
     }
 
-    test("Count ") {
+    test("Count 1") {
         collatzCount(1) should be (0)
     }
-    test("Count ") {
+    test("Count 101") {
         collatzCount(101) should be (25)
     }
-    test("Count ") {
+    test("Count 1111") {
         collatzCount(1111) should be (31)
     }
-    test("Count ") {
+    test("Count 267") {
         collatzCount(267) should be (21)
     }
 
