@@ -10,22 +10,31 @@ import scala.io.StdIn.readLine
 type Color = Char
 type Board = String
 val validColors = List('B', 'Y', 'R', 'G')
+val random = new Random()
 
 /** Get a random color from the list of valid colors */
 def getRandomColor(): Color =
-  ???
+  validColors.apply(random.nextInt(4))
+
 
 /** Given four colors, make a board from them */
 def makeBoardFromColors(c1: Color, c2: Color, c3: Color, c4: Color): Board =
-  ???
+  List(c1, c2, c3, c4).mkString
 
 /** Create a random board */
 def getRandomBoard(): Board =
-  ???
+  makeBoardFromColors(getRandomColor(),getRandomColor(), getRandomColor(), getRandomColor())
 
 /** Play one round of the game */
-def playRound(board: Board): (Int, Int) =
-  ???
+def playRound(board: Board): (Int, Int) = 
+  val c1 = readLine("Enter a guess for spot 1: ").toUpperCase().toCharArray()
+  val c2 = readLine("Enter a guess for spot 2: ").toUpperCase().toCharArray()
+  val c3 = readLine("Enter a guess for spot 3: ").toUpperCase().toCharArray()
+  val c4 = readLine("Enter a guess for spot 4: ").toUpperCase().toCharArray()
+  
+  // There might be a better way to convert to char/color, but this works 
+  val guessBoard = makeBoardFromColors(c1.apply(0), c2.apply(0), c3.apply(0), c4.apply(0))
+  scoreGuess(board, guessBoard)
 
 /** Score a guess
   *
